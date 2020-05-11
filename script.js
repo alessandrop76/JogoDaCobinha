@@ -44,11 +44,19 @@ function update(event){                                                    //dir
 
 
 function iniciarJogo(){
+
+   
     if(snake[0].x > 15 * box && direction == "right") snake[0].x = 0;   //limite da area de movimento da cobrinha
     if(snake[0].x < 0 && direction == "left") snake[0].x = 16 * box;
     if(snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
     if(snake[0].y < 0 * box && direction == "up") snake[0].y * box;
 
+    for(i = 1; i <snake.length; i++){
+        if(snake[0].x == snake[i]. && snake[0].y == snake[i].y){
+            clearInterval(jogo);
+            alert('Game Over :(');
+        }
+    }
 
     criarBG();
     criarCobrinha();
@@ -68,8 +76,6 @@ function iniciarJogo(){
       food.x = Math.floor(Math.random() * 15 + 1) * box;
       food.y = Math.floor(Math.random() * 15 + 1) * box;
   }
-
-
    
     let newHead = {
 
